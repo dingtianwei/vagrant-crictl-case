@@ -1,0 +1,11 @@
+*.vdi
+.vagrant
+*~
+.DS_Store
+.idea/
+*.pyc
+packages/
+__pycache__/
+vagrant_data/
+*.log
+*.box
