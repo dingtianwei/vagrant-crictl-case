@@ -14,8 +14,10 @@ FATA[0003] run pod sandbox: rpc error: code = Unknown desc = failed to create co
 
 ## 问题记录
 Q1[未解决]：将containerd的配置项中`plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options.SystemdCgroup=true`修改为`plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options.SystemdCgroup=false`，就可以创建pod了。
-* `kubelet`实践中，要求这个配置`SystemdCgroup=true`，为什么`crictl`在这个配置`SystemdCgroup=true`无法创建pod ？
-* 对于`crictl`来说，`SystemdCgroup=true` 和 `SystemdCgroup=false` 在过程中有什么区别？
+* ~`kubelet`实践中，要求这个配置`SystemdCgroup=true`~
+*  为什么`crictl`在这个配置`SystemdCgroup=true`无法创建pod ？
+* 如何保持`SystemdCgroup=true`的情况下，使用 `crictl` 创建pod？
+* ~对于`crictl`来说，containerd中的配置`SystemdCgroup=true` 和 `SystemdCgroup=false` 在过程中有什么区别？~
 
 Q2[未解决]: 在不断尝试的过程中发现，就目前环境的配置，将`/etc/cni/net.d/10-local.conflist`删除后，却创建了一个异常pod，不明原因
 ```
